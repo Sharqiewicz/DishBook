@@ -1,17 +1,22 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
-import { RootTabScreenProps } from '../types';
+import { Text, View, Button } from 'react-native'
+import { WithBottomTabScreenProps, RootStackScreenName } from '../navigation/routes.types'
 
-export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
+import { TrendDish } from '../components/TrendDish'
+
+export const TabOneScreen = ({ navigation }: WithBottomTabScreenProps<'Home'>) => {
+  const handleShowDish = () => {
+    navigation.navigate(RootStackScreenName.DishDetails)
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabOneScreen.tsx" />
+      <Button onPress={handleShowDish} title="show this dish" />
+      <TrendDish />
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -24,9 +29,4 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});
+})

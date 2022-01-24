@@ -1,0 +1,1 @@
+export { TrendDish } from './TrendDish'

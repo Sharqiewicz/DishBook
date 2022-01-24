@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native'
 
 import { Text, View } from 'react-native'
+import { RootStackScreenProps } from '../navigation/routes.types'
 
-export const TabTwoScreen = () => (
+export const DishDetailsScreen = ({ navigation }: RootStackScreenProps<'DishDetails'>) => (
   <View style={styles.container}>
-    <Text style={styles.title}>Tab Two</Text>
+    <Text style={styles.title}>Dish Details</Text>
   </View>
 )
 
